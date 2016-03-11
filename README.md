@@ -89,9 +89,9 @@ FROM
  TestPerformance.LargerTable AS bt
 WHERE 
  bt.CompareColumn NOT IN (
-	 SELECT 
+  SELECT 
    LookupColumn 
-	 FROM 
+  FROM 
    TestPerformance.SmallerTable
 )
 SET STATISTICS TIME OFF
@@ -103,9 +103,12 @@ SELECT
  , CompareColumn
 FROM TestPerformance.LargerTable AS bt
 WHERE NOT EXISTS (
-	SELECT 0
-	FROM TestPerformance.SmallerTable  AS st
-	WHERE st.LookupColumn = bt.CompareColumn
+  SELECT 
+   1
+  FROM 
+   TestPerformance.SmallerTable  AS st
+  WHERE 
+   st.LookupColumn = bt.CompareColumn
 )
 SET STATISTICS TIME OFF
 
@@ -133,9 +136,9 @@ FROM
  TestPerformance.LargerTable AS bt
 WHERE 
  bt.CompareColumn NOT IN (
-	 SELECT 
+  SELECT 
    LookupColumn 
-	 FROM 
+  FROM 
    TestPerformance.SmallerTable
 )
 SET STATISTICS TIME OFF
@@ -149,11 +152,11 @@ FROM
  TestPerformance.LargerTable AS bt
 WHERE 
  NOT EXISTS (
-	 SELECT 
-   0
-	 FROM 
+  SELECT 
+   1
+  FROM 
    TestPerformance.SmallerTable  AS st
-	 WHERE 
+  WHERE 
    st.LookupColumn = bt.CompareColumn
 )
 SET STATISTICS TIME OFF
