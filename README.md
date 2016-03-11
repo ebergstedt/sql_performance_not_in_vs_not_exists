@@ -185,10 +185,6 @@ WHERE
    st.LookupColumn = bt.CompareColumn
 )
 SET STATISTICS TIME OFF
-
--- Conclusion:
--- NOT NULL columns: equal performance
--- NOT EXISTS is faster if columns has NULL
 ```
 
 # Credits
