@@ -21,13 +21,20 @@ Winner is marked in **bold**.
 
 ### Run 2
 
+| Type       | Nullable | CPU Time (ms) | Elapsed time (ms) |
+|------------|----------|---------------|-------------------|
+| NOT IN     | No       | 78            | **100**               |
+| NOT EXISTS | No       | **46**            | 152               |
+| NOT IN     | Yes      | 27737         | 27771             |
+| NOT EXISTS | Yes      | **62**            | **131**               |
+
 ### Run 3
 
 # Conclusion
 
-If your fields are nullable, it does not make a difference.
+If your fields are not nullable, it does not make a difference.
 
-If your fields are not nullable, use NOT EXISTS.
+If your fields are nullable, use NOT EXISTS.
 
 # Script
 
