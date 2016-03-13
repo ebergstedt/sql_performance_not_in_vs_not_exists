@@ -43,6 +43,8 @@ Winner is marked in **bold**.
 
 # Conclusion
 
+(Given this code and database)
+
 If your fields are not nullable, it does not make a difference.
 
 If your fields are nullable, use NOT EXISTS.
