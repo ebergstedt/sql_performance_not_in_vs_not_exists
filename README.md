@@ -4,7 +4,7 @@ This document outlines performance on using NOT IN versus NOT EXISTS clauses, wh
 
 # Comparision index
 * **[NOT IN vs NOT EXISTS](https://github.com/ebergstedt/sql_performance_not_in_vs_not_exists)**
-* **[Inverted INNER JOIN - LEFT OUTER JOIN .. NULL vs NOT EXISTS](https://github.com/ebergstedt/sql_performance_left_outer_join_null_vs_not_exists)**
+* **[ANTI JOIN - LEFT OUTER JOIN .. NULL vs NOT EXISTS](https://github.com/ebergstedt/sql_performance_left_outer_join_null_vs_not_exists)**
 
 # Specs
 
@@ -48,6 +48,8 @@ Winner is marked in **bold**.
 If your fields are not nullable, it does not make a difference.
 
 If your fields are nullable, use NOT EXISTS.
+
+It's a good idea to default to NOT EXISTS since it will have at least equal performance to NOT IN, due to NOT EXISTS being "circuit breaking" - it will not evaluate the entire set, and break once it finds 1 match.
 
 # Script
 
